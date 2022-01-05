@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(13,25,78,1) 9%, rgba(15,30,87,1) 11%, rgba(19,38,101,1) 14%, rgba(33,68,152,1) 25%, rgba(45,95,198,1) 35%, rgba(25,147,223,1) 64%, rgba(0,212,255,1) 100%);
+}
+
+button {
+    border-radius: 1em;
+    padding: 16px;
+    background-color: burlywood;
+    color: darkblue;
+    font-weight: bolder;
+}
+
+.wrapper {
+    display: grid;
+    height: 50%;
+    width: 50%;
+    margin: 20px;
+    
+  }
+
+  .wrapper > div {
+      border: 1px solid black;
+      padding: 16px;
+  }
