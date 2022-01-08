@@ -1,9 +1,29 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
 body {
+    background: linear-gradient(to right, #010803, #292654);
+    
+}
+
+.main {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#settings {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(13,25,78,1) 9%, rgba(15,30,87,1) 11%, rgba(19,38,101,1) 14%, rgba(33,68,152,1) 25%, rgba(45,95,198,1) 35%, rgba(25,147,223,1) 64%, rgba(0,212,255,1) 100%);
+    margin: 0%;
+    padding: 0%;
 }
 
 button {
@@ -14,15 +34,27 @@ button {
     font-weight: bolder;
 }
 
-.wrapper {
-    display: grid;
-    height: 50%;
-    width: 50%;
-    margin: 20px;
+.grid-wrap {
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    max-width: 660px;
+    max-width: 660px;
+    margin-top: 60px;
+
+}
+
+.grid-main {
+    display: inline-grid;
+    width: 600px;
+    height: 600px;
+    margin: 20px 20px;
+    cursor: crosshair;
     
   }
 
-  .wrapper > div {
+  .grid-main > div {
       border: 1px solid black;
       padding: 16px;
   }

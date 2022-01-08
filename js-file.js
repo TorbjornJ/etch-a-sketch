@@ -1,44 +1,60 @@
-let container = document.querySelector('.wrapper')
+let container = document.querySelector('.grid-main')
+let selectedColor = document.querySelector('#colorPicker');
+let brushColor = '#000000';
 
-gridCreate(16, 16);
-gridColor();
+selectedColor.onchange = (e) => setColor(e.target.value);
+
 
 function gridCreate(height, width) {
     container.style.gridTemplateColumns = `repeat(${height}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${width}, 1fr)`;
     for (i = 0; i < height*width; i++) {
-    container.innerHTML += `<div class="square"></div>`;    
+        let tile = document.createElement('div');
+        container.appendChild(tile);
+        tile.classList.add('square');
     }
     
     const squares = document.querySelectorAll('.square');
     squares.forEach(square => {
-            square.style.backgroundColor = 'white';
+            square.style.backgroundColor = '#f2f2f2';
         })
 
+     gridPaint();
 }
 
-function gridColor () {
+function gridPaint () {
     const squares = document.querySelectorAll('.square');
     squares.forEach(squares => {
         squares.addEventListener('mouseover', () => {
-            squares.style.backgroundColor = 'black';
+            squares.style.backgroundColor = brushColor;
         })
     })
+}
+
+function setColor(color) {
+   brushColor = `${color}`;
+   gridPaint();
 }
 
 function clearGrid() {
     const squares = document.querySelectorAll('.square');
     squares.forEach(squares => {
-            squares.style.backgroundColor = 'white';
+            squares.style.backgroundColor = '#f2f2f2';
         });
-    
-
 }
 
-function newPrompt() {
-    const squares = document.querySelectorAll('.square');
-    const newgrid = prompt("Please enter a new length per side.", "0");
-    const input = Number(newgrid.value);
-
-    gridCreate(`${input}, ${input}`);
+function newGrid() {
+    let newSize = prompt("Please set a new size for both sides", "0");
+    let value = parseInt(newSize);
+    if (value > 1 && value <=100) { 
+    [...container.childNodes].forEach(el => el.remove());
+    gridCreate(newSize, newSize);
+    gridPaint();
+    }
+    else {
+        alert("Please enter a valid number between 1 and 0");
+    }
 }
+
+
+gridCreate(16, 16);
